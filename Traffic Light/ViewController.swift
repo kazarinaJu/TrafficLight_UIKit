@@ -20,9 +20,11 @@ class ViewController: UIViewController {
         for lightView in lightViews {
             lightView.layer.cornerRadius = lightView.frame.size.width/2
         }
-        
     }
 
-
+    @IBAction func startButtonDidTapped() {
+        startButton.setTitle("NEXT", for: .normal)
+    }
+    
 }
 
