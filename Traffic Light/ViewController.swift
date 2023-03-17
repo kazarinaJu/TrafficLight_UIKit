@@ -9,9 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var lightViews: [UIView]!
+    @IBOutlet var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        startButton.layer.cornerRadius = 10
+        
+        for lightView in lightViews {
+            lightView.layer.cornerRadius = lightView.frame.size.width/2
+        }
+        
     }
 
 
