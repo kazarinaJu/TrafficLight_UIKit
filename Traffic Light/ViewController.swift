@@ -9,44 +9,45 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var lightViews: [UIView]!
+    @IBOutlet var redLight: UIView!
+    @IBOutlet var yellowLight: UIView!
+    @IBOutlet var greenLight: UIView!
     @IBOutlet var startButton: UIButton!
+    
+    private var currentColor:TrafficLightColors = .red
     
     private enum TrafficLightColors {
             case red, yellow, green
         }
-        
-    private var currentColor:TrafficLightColors = .red
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startButton.layer.cornerRadius = 10
-        
-        for lightView in lightViews {
-            lightView.layer.cornerRadius = lightView.frame.width/2
-        }
+        redLight.layer.cornerRadius = redLight.frame.width / 2
+        yellowLight.layer.cornerRadius = yellowLight.frame.width / 2
+        greenLight.layer.cornerRadius = greenLight.frame.width / 2
     }
 
     @IBAction func startButtonDidTapped() {
         if startButton.currentTitle == "START" {
             startButton.setTitle("NEXT", for: .normal)
-            lightViews[0].alpha = 1
+            redLight.alpha = 1
             return
         }
         
         switch currentColor {
         case .red:
-            lightViews[0].alpha = 0.3
-            lightViews[1].alpha = 1
+            redLight.alpha = 0.3
+            yellowLight.alpha = 1
             currentColor = .yellow
         case .yellow:
-            lightViews[1].alpha = 0.3
-            lightViews[2].alpha = 1
+            yellowLight.alpha = 0.3
+            greenLight.alpha = 1
             currentColor = .green
         case .green:
-            lightViews[2].alpha = 0.3
-            lightViews[0].alpha = 1
+            greenLight.alpha = 0.3
+            redLight.alpha = 1
             currentColor = .red
         }
         
