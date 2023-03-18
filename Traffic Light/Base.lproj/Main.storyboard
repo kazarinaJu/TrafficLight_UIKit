@@ -70,9 +70,9 @@
                     </view>
                     <connections>
                         <outlet property="startButton" destination="QZ7-2X-3pA" id="m9e-xV-ewY"/>
-                        <outletCollection property="lightViews" destination="W2V-kP-gxb" collectionClass="NSMutableArray" id="uBR-lU-Fnn"/>
-                        <outletCollection property="lightViews" destination="Vho-ip-mzH" collectionClass="NSMutableArray" id="bG3-fl-PDH"/>
-                        <outletCollection property="lightViews" destination="5gJ-Et-PNf" collectionClass="NSMutableArray" id="LXz-92-bhc"/>
+                        <outletCollection property="lightViews" destination="5gJ-Et-PNf" collectionClass="NSMutableArray" id="VaF-uC-f8l"/>
+                        <outletCollection property="lightViews" destination="Vho-ip-mzH" collectionClass="NSMutableArray" id="JfL-a9-0xT"/>
+                        <outletCollection property="lightViews" destination="W2V-kP-gxb" collectionClass="NSMutableArray" id="eMf-Hy-UG2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
