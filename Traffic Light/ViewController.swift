@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet var redLight: UIView!
     @IBOutlet var yellowLight: UIView!
     @IBOutlet var greenLight: UIView!
+    
     @IBOutlet var startButton: UIButton!
     
-    private var currentColor:TrafficLightColors = .red
+    private var currentLight = CurrentLight.red
     private let lightIsOn: CGFloat = 1
     private let lightIsOff: CGFloat = 0.3
     
@@ -22,6 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         startButton.layer.cornerRadius = 10
+        
+        redLight.alpha = lightIsOff
+        yellowLight.alpha = lightIsOff
+        greenLight.alpha = lightIsOff
     }
     
     override func viewWillLayoutSubviews() {
@@ -34,30 +39,29 @@ class ViewController: UIViewController {
     @IBAction func startButtonDidTapped() {
         if startButton.currentTitle == "START" {
             startButton.setTitle("NEXT", for: .normal)
-            redLight.alpha = lightIsOn
-            return
         }
         
-        switch currentColor {
+        switch currentLight {
         case .red:
-            redLight.alpha = lightIsOff
-            yellowLight.alpha = lightIsOn
-            currentColor = .yellow
-        case .yellow:
-            yellowLight.alpha = lightIsOff
-            greenLight.alpha = lightIsOn
-            currentColor = .green
-        case .green:
             greenLight.alpha = lightIsOff
             redLight.alpha = lightIsOn
-            currentColor = .red
+            currentLight = .yellow
+        case .yellow:
+            redLight.alpha = lightIsOff
+            yellowLight.alpha = lightIsOn
+            currentLight = .green
+        case .green:
+            greenLight.alpha = lightIsOn
+            yellowLight.alpha = lightIsOff
+            currentLight = .red
         }
     }
 }
 
 extension ViewController {
-    private enum TrafficLightColors {
+    private enum CurrentLight {
         case red, yellow, green
     }
 }
+
 
